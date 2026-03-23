@@ -5,10 +5,11 @@ import numpy as np
 import pandas as pd
 import torch
 import torch.hub
+import cv2
 
-from dataset import EchoQualityDataset
-from models import MultiTaskEchoQ
-from utils import Task, evaluate_echoq, set_seed
+from src.dataset import EchoQualityDataset
+from src.models import MultiTaskEchoQ
+from src.utils import Task, evaluate_echoq, set_seed
 
 def load_parameters(parameters_path):
     parameters = {}
@@ -19,9 +20,10 @@ def load_parameters(parameters_path):
                 parameters[key.strip()] = value.strip()
     return parameters
 
-def main(args):
+def main(model_dir, root_path):
     # Identify parameters file
-    parameters_path = os.path.join(args.model_dir_path, 'parameters.txt')
+    parameters_path = 'results/echoQual_inference/parameters.txt'
+
     assert os.path.exists(parameters_path), f"Parameters file not found at {parameters_path}"
 
     # Load parameters
@@ -31,51 +33,76 @@ def main(args):
     data_dir = parameters.get('data_dir', '')
     dims = int(parameters.get('dims', 224))
     clip_len = int(parameters.get('clip_len', 16))
-    num_clips = 4 #int(parameters.get('num_clips', 20))
+    num_clips = 4
     sampling_rate = int(parameters.get('sampling_rate', 1))
     normalization = parameters.get('normalization', '')
     fc_dropout = float(parameters.get('fc_dropout', 0.0))
     seed = int(parameters.get('seed', 0))
     split = 'test'
     set_seed(seed)
-    print(dims, clip_len, sampling_rate, normalization, seed, flush=True)
     
     tasks = np.load(os.path.join('content/tasks_v5_qual.npy'), allow_pickle=True)
     
-    for t in tasks:
-        print(t.task_name)
-    
     task_inclusion = []
     
-    if args.view:
-        taskfold = 'view'
-    if args.structures:
-        taskfold = 'complete-structures'
-    if args.calidad:
-        taskfold = 'calidad'
-    if args.foreshortening:
-        taskfold = 'foreshortening'
-    if args.calidad_reg:
-        taskfold = 'calidad-reg'
-    if args.combined_quality:
-        taskfold = 'combined_quality'
+    taskfold = 'quality'
 
     task_inclusion.append('view')
     task_inclusion.append('complete-structures')
     task_inclusion.append('calidad')
     task_inclusion.append('combined-quality')
 
-
     tasks = [t for t in tasks if t.task_name in task_inclusion]
 
     # Load test dataset
     print('Preparing test dataset...')
     
-    test_df = pd.read_excel('content/20260227_mimics_iv_quality.xlsx') #COLOR
-    
-    test_df['FilePath'] = test_df['FilePath'].apply(os.path.normpath)
-    
-    test_df['FileName'] = test_df['Period'].astype(str) + '-' + test_df['FileName'].astype(str)
+    rows = []
+
+    # typical video extensions (adjust if needed)
+    video_exts = (".mp4", ".avi", ".mov", ".mkv")
+
+    for patient_id in os.listdir(root_path):
+        patient_path = os.path.join(root_path, patient_id)
+        
+        # skip if not a directory
+        if not os.path.isdir(patient_path):
+            continue
+        
+        # walk through all subfolders inside each study
+        for root, _, files in os.walk(patient_path):
+            for file in files:
+                # check if file is a video
+                if file.lower().endswith(video_exts):
+                    
+                    video_path = os.path.join(root, file)
+                    video_path = os.path.normpath(video_path)
+                    
+                    # count number of frames using OpenCV
+                    cap = cv2.VideoCapture(video_path)
+                    if not cap.isOpened():
+                        n_frames = None
+                    else:
+                        n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+                    cap.release()
+                    
+                    # append row with required fields
+                    rows.append({
+                        "Patient_ID": patient_id,
+                        "FilePath": video_path,
+                        "FileName": file,
+                        "NumberOfFrames": n_frames,
+                        "complete-structures": 0,
+                        "view": 0,
+                        "calidad": 0,
+                        "combined-quality": 0
+                    })
+
+    # create dataframe from collected rows
+    test_df = pd.DataFrame(rows)
+
+    # optional: sort results for consistency
+    test_df = test_df.sort_values(["Patient_ID", "FileName"]).reset_index(drop=True)
 
     # Visualizar la distribución en cada fold
     fold = 1
@@ -106,19 +133,20 @@ def main(args):
     test_loader = torch.utils.data.DataLoader(
         test_dataset, batch_size=1, shuffle=False, num_workers=2
     )
+    print(tasks)
 
     # Load model
     print("Loading model...", flush=True)
+    backbone = torch.hub.load('CarDS-Yale/PanEcho', 'PanEcho', force_reload=False, backbone_only=True, clip_len=clip_len)
+    
     model = MultiTaskEchoQ(
-        backbone=torch.hub.load('CarDS-Yale/PanEcho', 'PanEcho', force_reload=False, backbone_only=True, clip_len=clip_len),
+        backbone=backbone,
         tasks=tasks,
         fc_dropout=fc_dropout 
     )
 
     filtered_state_dict = {}
-    checkpoint_path = os.path.join(args.model_dir_path, f'chkpt_best_acc_calidad.pt')
-
-
+    checkpoint_path = 'results/echoQual_inference/echoqual.pt'
 
     # Cargar el checkpoint completo
     chkpt = torch.load(checkpoint_path, map_location='cpu')
@@ -151,7 +179,7 @@ def main(args):
         data_loader=test_loader,
         split=split,
         history=None,
-        model_dir=args.model_dir_path,
+        model_dir=model_dir,
         weights=None,
         amp=False,
         plot_history=False,
@@ -160,17 +188,7 @@ def main(args):
     )
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--model_dir_path', type=str, required=True, help='Path to the model directory')
-    parser.add_argument('--view', action='store_true', help="Include AoCalcium-presence task")
-    parser.add_argument('--structures', action='store_true', help="Include AoCalcium-score task")
-    parser.add_argument('--foreshortening', action='store_true', help="Include Fibrosis-score task")
-    parser.add_argument('--calidad', action='store_true', help="Include AoCalcium-volume-score task")
-    parser.add_argument('--calidad_reg', action='store_true', help="Include Fibrocalcific-score task")
-    parser.add_argument('--combined_quality', action='store_true', help="Include GMAortico task")
-
-    args = parser.parse_args()
-
-    print(args)
-
-    main(args)
+    model_dir = 'results/echoQual_inference'
+    root_path = r"e:\25366074H\Documents\EchoChat\echochat_preprocess\preprocess\output_2\echo"
+    
+    main(model_dir, root_path)
