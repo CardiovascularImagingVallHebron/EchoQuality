@@ -14,6 +14,11 @@ Initial analysis results were presented at [**EuroEcho 2024**](https://academic.
 ## Introduction
 Echocardiography image quality is highly variable and human grading is subjective. As AI adoption grows, understanding the impact of image quality becomes essential.
 
+## Purpose
+- Provide a reproducible framework for echocardiographic quality assessment  
+- Evaluate the impact of image quality on downstream AI models  
+- Support research in cardiac imaging analysis
+  
 ## Methods
 EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale/PanEcho) using **6,475 videos** annotated by three cardiologists:
 
@@ -21,11 +26,6 @@ EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale
 - **1,418 videos** for testing  
 
 Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition).
-
-## Purpose
-- Provide a reproducible framework for echocardiographic quality assessment  
-- Evaluate the impact of image quality on downstream AI models  
-- Support research in cardiac imaging analysis  
 
 ### Downstream Evaluation Overview
 ![Overview](content/overview.png)
@@ -36,12 +36,17 @@ Quality was defined by the clarity of the delineation between the blood pool and
 
 (iii) Left ventricular (LV) segmentation using two models [6] (trained on CAMUS [7] and EchoNet-Dynamic [8]) on **1,969 frames from 100 CAMUS videos** (Dice score).
 
+(iv) Human reproducibility in AHA-region-level LV strain (RS) and global longitudinal strain (GLS) in **587 videos from 100 studies**.
+
 ## Results
 In 3-class quality classification, the inter-observer agreement was **56%**, and EchoQuality achieved **58% test accuracy**.
 
 Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
 
+AI models results:
 ![Results](content/results_panels_dual_and_mimics_v2.png)
 
+Strain results:
+![Results](content/results_strain.png)
 ## Citation
 If you use this work, please cite ... (not yet)
