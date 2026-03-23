@@ -1,7 +1,12 @@
-*\results
+*\results/20250606_142740_frame_transformer_echoQual_cv
+*\results/20250606_142740_frame_transformer_echoQual_mayo
+*\results/20250606_142740_frame_transformer_echoQual_MIMICS
+*\results/20250606_142740_frame_transformer_echoQual_pocus
+
 *\runs
 *\data
-
+*.pt
+*.zip
 
 *.xlsx
 *.pth
