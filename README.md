@@ -31,7 +31,6 @@ EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale
 Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition).
 
 ### Downstream Evaluation Overview
-![Overview](content/overview.png)
 
 (i) Disease classification using PAN and EchoPrime (EP) [3] on **287,044 videos from 14,301 studies**, and up to 16 measurements on **469,591 videos from 21,465 studies** (in-house + MIMICS [4]).
 
@@ -43,6 +42,8 @@ Quality was defined by the clarity of the delineation between the blood pool and
 
 ## Results
 In 3-class quality classification, the inter-observer agreement was **56%**, and EchoQuality achieved **58% test accuracy**.
+
+![Model overview](content/results_summary.png)
 
 Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
 
