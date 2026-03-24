@@ -1,6 +1,6 @@
 # EchoQuality
 
-> **Pretrained weights**: Available at https://huggingface.co/CardiovascularImagingVHIR/EchoQuality  
+> **Pretrained weights**: Available at 🤗 https://huggingface.co/CardiovascularImagingVHIR/EchoQuality  
 > Download the file `echoqual.pt` and place it in `results/echoQual_inference/`
 
 ## Overview
