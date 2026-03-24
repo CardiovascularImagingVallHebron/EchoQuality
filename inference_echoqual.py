@@ -189,6 +189,6 @@ def main(model_dir, root_path):
 
 if __name__ == '__main__':
     model_dir = 'results/echoQual_inference'
-    root_path = r"e:\25366074H\Documents\EchoChat\echochat_preprocess\preprocess\output_2\echo"
+    root_path = r"..\echo"
     
     main(model_dir, root_path)

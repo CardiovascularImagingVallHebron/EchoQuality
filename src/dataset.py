@@ -102,8 +102,8 @@ class EchoQualityDataset(torch.utils.data.Dataset):
 
             ret, frame = capture.read()
             if not ret:
-                # Imprime el nombre del archivo cuando hay un error al leer el frame
-                print(f"Error leyendo frame {frame_idx} del video: {fpath}")
+                # Print the file name when there is an error reading the frame
+                print(f"Error reading frame {frame_idx} from video: {fpath}")
                 # Handle unexpected read errors by appending a blank frame
                 frame = np.zeros((self.dims, self.dims, 3), dtype=np.uint8)
             
@@ -253,7 +253,7 @@ class EchoQualityDataset(torch.utils.data.Dataset):
 def calculate_segments(nb_frames, skipping_rate, total_frames):
     if total_frames < nb_frames * skipping_rate:
         while total_frames < nb_frames * skipping_rate:
-            skipping_rate -= 1  # Reduce skipping_rate progresivamente
+            skipping_rate -= 1  # Reduce skipping_rate progressively
 
             if skipping_rate < 1:
                 skipping_rate = 1
@@ -263,18 +263,18 @@ def calculate_segments(nb_frames, skipping_rate, total_frames):
     segment_starts = []
     i = 0
 
-    # Continuar mientras el último frame del último posible segmento no exceda el total de frames
+    # Continue while the last frame of the last possible segment does not exceed the total number of frames
     while i + frame_range <= total_frames:
-        # Añadir índices de inicio para el rango actual
+        # Add start indices for the current range
         for num in range(skipping_rate):
             if num + i + frame_range - skipping_rate <= total_frames :
                 segment_starts.append(num + i)
                 # segment_starts.extend(list(range(i, min(num + frame_range, total_frames - frame_range + 1))))
-        # Saltar al próximo rango principal
+        # Move to the next main range
         i += frame_range
 
-    # Añadir índices adicionales al final si es necesario
-    if total_frames - i > 15:  # Verificar si quedan más de 15 frames sin cubrir
+    # Add additional indices at the end if needed
+    if total_frames - i > 15:  # Check whether more than 15 frames remain uncovered
         for j in range(3):
             start_index = total_frames - frame_range - j
             segment_starts.append(start_index)

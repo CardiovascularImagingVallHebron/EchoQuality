@@ -11,8 +11,6 @@ import tqdm
 import csv
 from sklearn import metrics
 
-from src.ddp_utils import all_gather, is_main_process
-
 class Task():
     """Echocardiography interpretation task object."""
     def __init__(self, task_name, task_type, class_names, mean=np.nan):
@@ -227,9 +225,9 @@ def evaluate_echoq(model, tasks, loss_fxns, data_loader, split, history, model_d
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         df.to_csv(output_path, index=False)
 
-    if is_main_process():
-        e = time.perf_counter()
-        print(f'EVALUATION TIME: {time_elapsed(e-s)}')
+    # if is_main_process():
+    e = time.perf_counter()
+    print(f'EVALUATION TIME: {time_elapsed(e-s)}')
 
     
 
