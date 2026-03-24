@@ -104,13 +104,13 @@ def main(model_dir, root_path):
     # optional: sort results for consistency
     test_df = test_df.sort_values(["Patient_ID", "FileName"]).reset_index(drop=True)
 
-    # Visualizar la distribución en cada fold
+    # Visualize the distribution in each fold
     fold = 1
     
-    # Filtrar los datos asegurando que solo se usan los pacientes correctos
+    # Filter the data to ensure only the correct patients are used
     fold_val_df = test_df
     
-    # Comprobación
+    # Check
     print(f"Fold {fold+1}:", flush=True)
     print(f" - Test Patients: {len(fold_val_df)} ", flush=True)
     print("-" * 60, flush=True)
@@ -148,7 +148,7 @@ def main(model_dir, root_path):
     filtered_state_dict = {}
     checkpoint_path = 'results/echoQual_inference/echoqual.pt'
 
-    # Cargar el checkpoint completo
+    # Load the full checkpoint
     chkpt = torch.load(checkpoint_path, map_location='cpu')
     print(checkpoint_path, flush=True)
     filtered_state_dict = {}
@@ -156,7 +156,7 @@ def main(model_dir, root_path):
     for k, v in chkpt['weights'].items():
         filtered_state_dict[k] = v
             
-    # Cargar las capas filtradas
+    # Load the filtered layers
     model.load_state_dict(filtered_state_dict, strict=True)
 
     model = model.cuda()
