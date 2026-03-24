@@ -9,7 +9,6 @@ import pandas as pd
 import torch
 import tqdm
 import csv
-from sklearn import metrics
 
 class Task():
     """Echocardiography interpretation task object."""
