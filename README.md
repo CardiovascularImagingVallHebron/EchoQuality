@@ -40,9 +40,9 @@ Quality was defined by the clarity of the delineation between the blood pool and
 ## Results
 In 3-class quality classification, the inter-observer agreement was **56%**, and EchoQuality achieved **58% test accuracy**.
 
-![Model overview](content/results_summary.png)
-
 Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
+
+![Model overview](content/results_summary.png)
 
 ## Citation
 If you use this work, please cite ... (not yet)
