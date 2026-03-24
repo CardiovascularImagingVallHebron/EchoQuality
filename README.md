@@ -46,12 +46,5 @@ In 3-class quality classification, the inter-observer agreement was **56%**, and
 
 Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
 
-### AI models results:
-
-![Results](content/results_panels_dual_and_mimics_v2.png)
-
-### Strain results:
-
-![Results](content/results_strain.png)
 ## Citation
 If you use this work, please cite ... (not yet)
