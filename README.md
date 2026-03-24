@@ -2,16 +2,16 @@
 
 > **Pretrained weights**: Available at 🤗 https://huggingface.co/CardiovascularImagingVHIR/EchoQuality
 
-> ## Manual Usage
+## Manual Usage
 
-> 1. Download the file `echoqual.pt` from the HuggingFace link above.  
-> 2. Place it in: `results/echoQual_inference/`  
-> 3. In `inference_echoqual.py`, update **line 192**:  
->   - Set `root_path` to the directory containing your input videos  
-> 4. Create and activate the environment using the provided `content/torchone.yml` file
-> 5. Run:
->    ```bash
->    python inference_echoqual.py
+1. Download the file `echoqual.pt` from the HuggingFace link above.
+2. Place it in: `results/echoQual_inference/`
+3. In `inference_echoqual.py`, update **line 192**:  
+  - Set `root_path` to the directory containing your input videos  
+4. Create and activate the environment using the provided `content/torchone.yml` file
+5. Run:
+   ```bash
+   python inference_echoqual.py
 
 ## Overview
 EchoQuality is a deep learning model for assessing echocardiographic image quality.
