@@ -4,7 +4,7 @@
 > Download the file `echoqual.pt` and place it in `results/echoQual_inference/`
 
 ## Overview
-EchoQuality is a deep learning model for assessing echocardiographic image quality. It provides a consistent and objective evaluation of image quality, addressing the variability and subjectivity of human grading.
+EchoQuality is a deep learning model for assessing echocardiographic image quality.
 
 ## Model Architecture
 ![Model overview](content/panecho_quality_V2.png)
