@@ -5,22 +5,25 @@
 ## Manual Usage
 
 1. Download the file `echoqual.pt` from the HuggingFace link above.
-2. Place it in: `results/echoQual_inference/`
+2. Place it in: `results/echoQual_inference/`.
 3. In `inference_echoqual.py`, update **line 192**:  
     - Set `root_path` to the directory containing your input videos.
     - **IMPORTANT**: Input videos should have **256×256 pixel resolution** and **original frame length**, preferably in **MP4 or AVI format**.
-4. Create and activate the environment using the provided `content/torchone.yml` file
+4. Create and activate the environment using the provided `content/torchone.yml` file.
 5. Run:
    ```bash
    python inference_echoqual.py
+6. The script generates two output files in `results/echoQual_inference/`:  
+   - `inference_sample_predictions_*.csv`: predictions at sample level.
+   - `inference_predictions_*.csv`: aggregated predictions at video level.
 
 ## Overview
 EchoQuality is a deep learning model for assessing echocardiographic image quality.
 
 ## Purpose
-- Provide a reproducible framework for echocardiographic quality assessment  
-- Evaluate the impact of image quality on downstream AI models  
-- Support research in cardiac imaging analysis
+- Provide a reproducible framework for echocardiographic quality assessment.
+- Evaluate the impact of image quality on downstream AI models.
+- Support research in cardiac imaging analysis.
   
 ## Model Architecture
 ![Model overview](content/panecho_quality_V2.png)
