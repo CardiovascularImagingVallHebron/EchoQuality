@@ -189,6 +189,6 @@ def main(model_dir, root_path):
 
 if __name__ == '__main__':
     model_dir = 'results/echoQual_inference'
-    root_path = r"..\echo"
+    root_path = r"../echo"
     
     main(model_dir, root_path)
