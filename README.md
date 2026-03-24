@@ -8,7 +8,7 @@
 2. Place it in: `results/echoQual_inference/`  
 3. In `inference_echoqual.py`, update **line 192**:  
    - Set `root_path` to the directory containing your input videos  
-4. Create and activate the environment using the provided `.yaml` file  
+4. Create and activate the environment using the provided `content/torchone.yml` file
 5. Run:
    ```bash
    python inference_echoqual.py
