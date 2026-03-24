@@ -8,7 +8,7 @@
 2. Place it in: `results/echoQual_inference/`
 3. In `inference_echoqual.py`, update **line 192**:  
     - Set `root_path` to the directory containing your input videos.
-    - **IMPORTANT**: Input videos should have **256×256 pixel resolution** and **original frame length**, and preferably in **MP4 or AVI format**.
+    - **IMPORTANT**: Input videos should have **256×256 pixel resolution** and **original frame length**, preferably in **MP4 or AVI format**.
 4. Create and activate the environment using the provided `content/torchone.yml` file
 5. Run:
    ```bash
