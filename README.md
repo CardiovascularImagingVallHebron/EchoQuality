@@ -45,7 +45,7 @@ EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale
 - **5,057 videos** for development
 - **1,418 videos** for testing
 
-Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition)
+Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition).
 
 ### Downstream Evaluation Overview
 
