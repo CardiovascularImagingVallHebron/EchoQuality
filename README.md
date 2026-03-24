@@ -31,7 +31,7 @@ EchoQuality is built by fine-tuning the PanEcho model for image quality assessme
 Initial analysis results were presented at [**EuroEcho 2024**](https://academic.oup.com/ehjcimaging/article/26/Supplement_1/jeae333.030/7986421?login=true) [1]
 
 ## Development
-EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale/PanEcho) [2] using **6,475 videos** annotated by three cardiologists:
+EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale/PanEcho) (PAN) [2] using **6,475 videos** annotated by three cardiologists:
 
 - **5,057 videos** for development  
 - **1,418 videos** for testing  
