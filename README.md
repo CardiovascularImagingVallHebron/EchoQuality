@@ -25,7 +25,7 @@ EchoQuality is a deep learning model for assessing echocardiographic image quali
 ## Model Architecture
 ![Model overview](content/panecho_quality_V2.png)
 
-EchoQuality is built by fine-tuning the PanEcho model for image quality assessment and adding specific quality tasks.
+EchoQuality is built by fine-tuning the PanEcho model for image quality assessment, adding specific quality tasks.
 
 ## Scientific Background
 Initial analysis results were presented at [**EuroEcho 2024**](https://academic.oup.com/ehjcimaging/article/26/Supplement_1/jeae333.030/7986421?login=true) [1]
