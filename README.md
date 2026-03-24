@@ -7,7 +7,8 @@
 1. Download the file `echoqual.pt` from the HuggingFace link above.
 2. Place it in: `results/echoQual_inference/`
 3. In `inference_echoqual.py`, update **line 192**:  
-  - Set `root_path` to the directory containing your input videos  
+  - Set `root_path` to the directory containing your input videos.
+  - **IMPORTANT**: Input videos should preferably be in **MP4 or AVI format**, with **256×256 resolution** and **original frame length**  
 4. Create and activate the environment using the provided `content/torchone.yml` file
 5. Run:
    ```bash
