@@ -12,7 +12,7 @@ class MultiTaskEchoQ(torch.nn.Module):
         self.classification_heads = {}
         self.regression_heads = {}
 
-        # Buscar y configurar la cabeza 'view'
+        # Find and configure the 'view' head
         self.view_task = next(task for task in tasks if task.task_name == 'view')
         self.view_head = torch.nn.Sequential(
             torch.nn.Dropout(p=fc_dropout),
@@ -21,9 +21,9 @@ class MultiTaskEchoQ(torch.nn.Module):
 
         for task in self.tasks:
             if task.task_name == 'view':
-                continue  # Ya está manejada
+                continue  # Already handled
 
-            input_dim = 768 + self.view_task.class_names.size  # Nueva entrada extendida
+            input_dim = 768 + self.view_task.class_names.size  # New extended input
 
             if task.task_type == 'multi-class_classification':
                 head = torch.nn.Sequential(
@@ -57,18 +57,18 @@ class MultiTaskEchoQ(torch.nn.Module):
         x = self.forward_features(x)
         out_dict = {}
 
-        # Primero el head de view
+        # Run the view head first
         view_output = self.view_head(x)
         out_dict['view'] = view_output
 
-        # Concatenar con el embedding
+        # Concatenate with the embedding
         x_extended = torch.cat([x, view_output], dim=-1)
 
-        # Clasificación
+        # Classification
         for task_name, head in self.classification_heads.items():
             out_dict[task_name] = head(x_extended)
 
-        # Regresión
+        # Regression
         for task_name, head in self.regression_heads.items():
             out_dict[task_name] = head(x_extended)
 
