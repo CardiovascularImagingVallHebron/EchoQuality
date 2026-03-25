@@ -18,6 +18,12 @@
    - `inference_sample_predictions_*.csv`: predictions at sample level.
    - `inference_predictions_*.csv`: aggregated predictions at video level.
 
+## Citation
+
+If you use this work, please cite ... (not yet)
+
+---
+
 ## Overview
 
 EchoQuality is a deep learning model for assessing echocardiographic image quality.
@@ -64,10 +70,6 @@ In 3-class quality classification, the inter-observer agreement was **56%**, and
 Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
 
 ![Model overview](content/results_summary.png)
-
-## Citation
-
-If you use this work, please cite ... (not yet)
 
 ## References
 
