@@ -14,11 +14,10 @@
 test.ipynb
 *.md
 *.pyc
-*.csv
 
 *.ipynb
 *\src\__pycache__
-
+content/tartaglia_db_beta_modified.csv
 src/evaluate_echoaovcalcium_crossvalid.py
 src/evaluate_echoaovcalcium_study.py
 src/evaluate_echoaovcalcium.py
