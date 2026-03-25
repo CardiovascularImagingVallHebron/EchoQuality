@@ -71,6 +71,8 @@ Across downstream tasks (disease classification, view identification, LV segment
 
 ![Model overview](content/results_summary.png)
 
+---
+
 ## References
 
 1. Lopez-Gutierrez P, Morales A, Dux-Santoy L, et al. Echocardiography image quality assessment: human subjectivity and artificial intelligence prediction in multi-centre data. European Heart Journal - Cardiovascular Imaging. 2025;26(suppl 1):jeae333.030.
