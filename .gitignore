@@ -15,7 +15,8 @@ test.ipynb
 *.md
 *.pyc
 
-*.ipynb
+results_eval_merge.ipynb
+results_eval_quality_strain.ipynb
 *\src\__pycache__
 content/tartaglia_db_beta_modified.csv
 src/evaluate_echoaovcalcium_crossvalid.py
@@ -25,7 +26,11 @@ src/evaluate_panecho.py
 src/train_echoaovcalcium_crossvalid.py
 src/train_echoqual.py
 src/inference_echoaovcalcium_crossvalid.py
-
+content/20260217_gls_quality_views.csv
+content/inference_predictions_video_strain2.csv
+content/inference_predictions_video_strain1.csv
 content/tasks.npy
 content/tasks_v1_qual.npy
 content/tasks.pkl
+content/probs_tartaglia_496.csv
+content/results_strain.png
