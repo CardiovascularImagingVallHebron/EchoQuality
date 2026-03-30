@@ -17,6 +17,7 @@ test.ipynb
 
 results_eval_merge.ipynb
 results_eval_quality_strain.ipynb
+results_mimics.ipynb
 *\src\__pycache__
 content/tartaglia_db_beta_modified.csv
 src/evaluate_echoaovcalcium_crossvalid.py
@@ -34,3 +35,4 @@ content/tasks_v1_qual.npy
 content/tasks.pkl
 content/probs_tartaglia_496.csv
 content/results_strain.png
+results/EchoQuality_external_val_v1
