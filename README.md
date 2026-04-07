@@ -18,6 +18,8 @@
    - `inference_sample_predictions_*.csv`: predictions at sample level.
    - `inference_predictions_*.csv`: aggregated predictions at video level.
 
+7. In case of error in line 140, download the file `backbone_structure.pt` from the HuggingFace and place it in: `results/echoQual_inference/`.
+
 ## Citation
 
 If you use this work, please cite ... (not yet)
