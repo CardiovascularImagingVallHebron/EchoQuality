@@ -62,47 +62,38 @@ def main(model_dir, root_path):
     # typical video extensions (adjust if needed)
     video_exts = (".mp4", ".avi", ".mov", ".mkv")
 
-    for patient_id in os.listdir(root_path):
-        patient_path = os.path.join(root_path, patient_id)
-        
-        # skip if not a directory
-        if not os.path.isdir(patient_path):
-            continue
-        
-        # walk through all subfolders inside each study
-        for root, _, files in os.walk(patient_path):
-            for file in files:
-                # check if file is a video
-                if file.lower().endswith(video_exts):
-                    
-                    video_path = os.path.join(root, file)
-                    video_path = os.path.normpath(video_path)
-                    
-                    # count number of frames using OpenCV
-                    cap = cv2.VideoCapture(video_path)
-                    if not cap.isOpened():
-                        n_frames = None
-                    else:
-                        n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-                    cap.release()
-                    
-                    # append row with required fields
-                    rows.append({
-                        "Patient_ID": patient_id,
-                        "FilePath": video_path,
-                        "FileName": file,
-                        "NumberOfFrames": n_frames,
-                        "complete-structures": 0,
-                        "view": 0,
-                        "calidad": 0,
-                        "combined-quality": 0
-                    })
+    for root, _, files in os.walk(root_path):
+        for file in files:
+            if not file.lower().endswith(video_exts):
+                continue
+
+            video_path = os.path.normpath(os.path.join(root, file))
+            relative_dir = os.path.relpath(root, root_path)
+            patient_id = relative_dir if relative_dir != "." else os.path.splitext(file)[0]
+
+            # count number of frames using OpenCV
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                n_frames = None
+            else:
+                n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            cap.release()
+
+            rows.append({
+                "Patient_ID": patient_id,
+                "FilePath": video_path,
+                "FileName": file,
+                "NumberOfFrames": n_frames,
+                "complete-structures": 0,
+                "view": 0,
+                "calidad": 0,
+                "combined-quality": 0
+            })
 
     # create dataframe from collected rows
     test_df = pd.DataFrame(rows)
 
-    # optional: sort results for consistency
-    test_df = test_df.sort_values(["Patient_ID", "FileName"]).reset_index(drop=True)
+    test_df = test_df.reset_index(drop=True)
 
     # Visualize the distribution in each fold
     fold = 1
@@ -206,6 +197,6 @@ def main(model_dir, root_path):
 
 if __name__ == '__main__':
     model_dir = 'results/echoQual_inference'
-    root_path = r"\\NAS3_Z\all\BKP_PERE\BBDD_Datasets\TEST_ECHOAVC\VALVE_VIDS"
+    root_path = r"../ECHO_VIDS"
     
     main(model_dir, root_path)
