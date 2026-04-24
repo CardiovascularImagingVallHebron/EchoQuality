@@ -39,3 +39,11 @@ results/EchoQuality_external_val_v1
 results/EchoQuality_external_val_v2
 paper_results.ipynb
 .claude
+nii_to_avi.ipynb
+nii_to_avi.py
+output_results_mimics.ipynb
+output_results_tartaglia.ipynb
+abstract_figures.ipynb
+results/paper/
+results/echoQual_inference/output/*
+!results/echoQual_inference/output/.gitkeep

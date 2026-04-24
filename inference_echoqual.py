@@ -66,7 +66,6 @@ def main(model_dir, root_path):
         for file in files:
             if not file.lower().endswith(video_exts):
                 continue
-
             video_path = os.path.normpath(os.path.join(root, file))
             relative_dir = os.path.relpath(root, root_path)
             patient_id = relative_dir if relative_dir != "." else os.path.splitext(file)[0]
