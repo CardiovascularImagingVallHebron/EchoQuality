@@ -47,3 +47,4 @@ abstract_figures.ipynb
 results/paper/
 results/echoQual_inference/output/*
 !results/echoQual_inference/output/.gitkeep
+quality_aware_tartaglia_test.ipynb
