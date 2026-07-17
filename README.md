@@ -2,7 +2,7 @@
 
 > **Pretrained weights**: Available at 🤗 https://huggingface.co/CardiovascularImagingVHIR/EchoQuality
 
-## Manual Usage
+## How to use
 
 1. Download the file `echoqual.pt` from the HuggingFace link above.
 2. Place it in: `results/echoQual_inference/`.
@@ -28,7 +28,7 @@ If you use this work, please cite ... (not yet)
 
 ## Overview
 
-EchoQuality is a deep learning model for assessing echocardiographic image quality.
+EchoQuality is a deep learning model for assessing 2d b-mode echocardiographic image quality.
 
 ## Purpose
 
@@ -55,6 +55,7 @@ EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale
 
 Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition).
 
+<!--
 ### Downstream Evaluation Overview
 
 (i) Disease classification using PAN and EchoPrime (EP) [3] on **287,044 videos from 14,301 studies**, and up to 16 measurements on **469,591 videos from 21,465 studies** (in-house + MIMICS [4]).
@@ -73,15 +74,15 @@ Across downstream tasks (disease classification, view identification, LV segment
 
 ![Model overview](content/results_summary.png)
 
----
+--- -->
 
 ## References
 
 1. Lopez-Gutierrez P, Morales A, Dux-Santoy L, et al. Echocardiography image quality assessment: human subjectivity and artificial intelligence prediction in multi-centre data. European Heart Journal - Cardiovascular Imaging. 2025;26(suppl 1):jeae333.030.
 2. Holste G, Oikonomou EK, Tokodi M, Kovács A, Wang Z, Khera R. Complete AI-enabled echocardiography interpretation with multitask deep learning. JAMA. 2025;334(4):306-318.
-3. Vukadinovic M, Chiu IM, Tang X, et al. Comprehensive echocardiogram evaluation with view-primed vision-language AI. Nature. 2025.
-4. Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R. MIMIC-IV, version 2.2. PhysioNet. 2023. RRID:SCR_007345.
-5. Zhang J, Gajjala S, Agrawal P, et al. Fully automated echocardiogram interpretation in clinical practice: feasibility and diagnostic accuracy. Circulation. 2018;138(16):1623-1635.
-6. Van De Vyver G, Lenz AT, Smistad E, et al. Generative augmentations for improved cardiac ultrasound segmentation using diffusion models. Sci Rep. 2025;15:38013.
-7. Leclerc S, Smistad E, Pedrosa J, et al. Deep learning for segmentation using an open large-scale dataset in 2D echocardiography. IEEE Trans Med Imaging. 2019;38(9):2198-2210.
-8. Ouyang D, He B, Ghorbani A, et al. Video-based AI for beat-to-beat assessment of cardiac function. Nature. 2020;580:252-256.
+<!-- 3. Vukadinovic M, Chiu IM, Tang X, et al. Comprehensive echocardiogram evaluation with view-primed vision-language AI. Nature. 2025.
+3. Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R. MIMIC-IV, version 2.2. PhysioNet. 2023. RRID:SCR_007345.
+4. Zhang J, Gajjala S, Agrawal P, et al. Fully automated echocardiogram interpretation in clinical practice: feasibility and diagnostic accuracy. Circulation. 2018;138(16):1623-1635.
+5. Van De Vyver G, Lenz AT, Smistad E, et al. Generative augmentations for improved cardiac ultrasound segmentation using diffusion models. Sci Rep. 2025;15:38013.
+6. Leclerc S, Smistad E, Pedrosa J, et al. Deep learning for segmentation using an open large-scale dataset in 2D echocardiography. IEEE Trans Med Imaging. 2019;38(9):2198-2210.
+7. Ouyang D, He B, Ghorbani A, et al. Video-based AI for beat-to-beat assessment of cardiac function. Nature. 2020;580:252-256. -->
