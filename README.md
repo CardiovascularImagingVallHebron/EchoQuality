@@ -26,63 +26,10 @@ If you use this work, please cite ... (not yet)
 
 ---
 
-## Overview
+![EchoQuality overview](content/echoquality_overview.png)
 
-EchoQuality is a deep learning model for assessing 2d b-mode echocardiographic image quality.
+## About
 
-## Purpose
+EchoQuality is a deep-learning model for automated and reproducible assessment of echocardiographic image quality. Developed from 7,475 expert-annotated videos, it was evaluated across five international cohorts comprising 762,588 videos from 25,205 studies.
 
-- Provide a reproducible framework for echocardiographic quality assessment.
-- Evaluate the impact of image quality on downstream AI models.
-- Support research in cardiac imaging analysis.
-
-## Model Architecture
-
-![Model overview](content/panecho_quality_V2.png)
-
-EchoQuality is built by fine-tuning the PanEcho model for image quality assessment, adding specific quality tasks.
-
-## Scientific Background
-
-Initial analysis results were presented at [**EuroEcho 2024**](https://academic.oup.com/ehjcimaging/article/26/Supplement_1/jeae333.030/7986421?login=true) [1]
-
-## Development
-
-EchoQuality was developed by fine-tuning [PanEcho](https://github.com/CarDS-Yale/PanEcho) (PAN) [2] using **6,475 videos** annotated by three cardiologists:
-
-- **5,057 videos** for development
-- **1,418 videos** for testing
-
-Quality was defined by the clarity of the delineation between the blood pool and cardiovascular structures (border definition).
-
-<!--
-### Downstream Evaluation Overview
-
-(i) Disease classification using PAN and EchoPrime (EP) [3] on **287,044 videos from 14,301 studies**, and up to 16 measurements on **469,591 videos from 21,465 studies** (in-house + MIMICS [4]).
-
-(ii) View identification using Zhang (ZH) [5] and EP on **6,697 videos from 464 studies**.
-
-(iii) Left ventricular (LV) segmentation using two models [6] (trained on CAMUS [7] and EchoNet-Dynamic [8]) on **1,969 frames from 100 CAMUS videos** (Dice score).
-
-(iv) Human reproducibility in AHA-region-level LV strain (RS) and global longitudinal strain (GLS) in **587 videos from 100 studies**.
-
-## Results
-
-In 3-class quality classification, the inter-observer agreement was **56%**, and EchoQuality achieved **58% test accuracy**.
-
-Across downstream tasks (disease classification, view identification, LV segmentation, and strain analysis), good-quality studies consistently outperformed bad-quality ones, improving accuracy, AUC, R², Dice score, and reducing variability in clinical measurements.
-
-![Model overview](content/results_summary.png)
-
---- -->
-
-## References
-
-1. Lopez-Gutierrez P, Morales A, Dux-Santoy L, et al. Echocardiography image quality assessment: human subjectivity and artificial intelligence prediction in multi-centre data. European Heart Journal - Cardiovascular Imaging. 2025;26(suppl 1):jeae333.030.
-2. Holste G, Oikonomou EK, Tokodi M, Kovács A, Wang Z, Khera R. Complete AI-enabled echocardiography interpretation with multitask deep learning. JAMA. 2025;334(4):306-318.
-<!-- 3. Vukadinovic M, Chiu IM, Tang X, et al. Comprehensive echocardiogram evaluation with view-primed vision-language AI. Nature. 2025.
-3. Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R. MIMIC-IV, version 2.2. PhysioNet. 2023. RRID:SCR_007345.
-4. Zhang J, Gajjala S, Agrawal P, et al. Fully automated echocardiogram interpretation in clinical practice: feasibility and diagnostic accuracy. Circulation. 2018;138(16):1623-1635.
-5. Van De Vyver G, Lenz AT, Smistad E, et al. Generative augmentations for improved cardiac ultrasound segmentation using diffusion models. Sci Rep. 2025;15:38013.
-6. Leclerc S, Smistad E, Pedrosa J, et al. Deep learning for segmentation using an open large-scale dataset in 2D echocardiography. IEEE Trans Med Imaging. 2019;38(9):2198-2210.
-7. Ouyang D, He B, Ghorbani A, et al. Video-based AI for beat-to-beat assessment of cardiac function. Nature. 2020;580:252-256. -->
+Image quality was a major determinant of AI performance across echocardiographic measurements, dysfunction and disease detection, view identification, and left-ventricular segmentation. High-quality studies achieved the best performance in 73% of evaluations, while a quality-aware aggregation strategy improved performance in 84% of evaluations. These findings show that incorporating image-quality awareness can improve the robustness and clinical reliability of echocardiographic AI systems.
