@@ -12,6 +12,10 @@ Image quality was a major determinant of AI performance across echocardiographic
 
 > **Pretrained weights**: Available at 🤗 https://huggingface.co/CardiovascularImagingVHIR/EchoQuality
 
+## Examples
+
+![EchoQuality examples](content/quality_views_4x3.gif)
+
 ## How to use
 
 1. Download the file `echoqual.pt` from the HuggingFace link above.

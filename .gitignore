@@ -49,3 +49,6 @@ results/echoQual_inference/output/*
 !results/echoQual_inference/output/.gitkeep
 quality_aware_tartaglia_test.ipynb
 paper_results_v2.ipynb
+paper_results_v3.ipynb
+.vscode
+results/echoQual_inference/HUVH
