@@ -14,7 +14,7 @@ Image quality was a major determinant of AI performance across echocardiographic
 
 ## Examples
 
-<img src="content/quality_views_3x4.gif" alt="EchoQuality examples" width="50%">
+<img src="content/quality_views_3x4.gif" alt="EchoQuality examples" width="100%">
 
 ## How to use
 
