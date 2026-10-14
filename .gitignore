@@ -52,3 +52,5 @@ paper_results_v2.ipynb
 paper_results_v3.ipynb
 .vscode
 results/echoQual_inference/HUVH
+paper_review.ipynb
+postprocess_old.ipynb

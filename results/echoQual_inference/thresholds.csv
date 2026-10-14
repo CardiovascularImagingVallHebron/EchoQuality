@@ -1,0 +1,13 @@
+model,disease,threshold
+echoprime,AVRegurg,0.04
+panecho,AVRegurg,0.0678849203871942
+echoprime,AVStenosis,0.04
+panecho,AVStenosis,0.2700180682770796
+echoprime,MVRegurgitation,0.06
+panecho,MVRegurgitation,0.0869858784269086
+echoprime,MVStenosis,0.02
+panecho,MVStenosis,0.0644548883931818
+echoprime,TVRegurgitation,0.02
+panecho,TVRegurgitation,0.0662937621183576
+echoprime,pericardial-effusion,0.02
+panecho,pericardial-effusion,0.0445128214359375
