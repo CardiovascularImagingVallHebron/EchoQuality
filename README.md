@@ -1,16 +1,20 @@
-# EchoQuality
+# EchoQuality: Automated echocardiography image quality assessment and its association with AI performance
 
-#### Automated echocardiography image quality assessment and its association with AI performance
+<p align="center">
+  <img src="https://img.shields.io/badge/arXiv-Paper%20coming%20soon-B31B1B?style=for-the-badge&logo=googlescholar&logoColor=white" alt="arXiv paper coming soon">
+  <a href="https://github.com/CardiovascularImagingVallHebron/EchoQuality"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub code"></a>
+  <a href="https://huggingface.co/CardiovascularImagingVHIR/EchoQuality"><img src="https://img.shields.io/badge/Hugging%20Face-Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white" alt="Hugging Face weights"></a>
+</p>
 
-![arXiv: coming soon](https://img.shields.io/badge/arXiv-coming%20soon-b31b1b)
-[![GitHub](https://img.shields.io/badge/GitHub-EchoQuality-181717?logo=github)](https://github.com/CardiovascularImagingVallHebron/EchoQuality)
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-EchoQuality-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/CardiovascularImagingVHIR/EchoQuality)
+EchoQuality is a deep-learning model for automated and reproducible assessment of echocardiographic image quality.
+
+---
 
 ![EchoQuality overview](content/echoquality_overview.png)
 
 ## About
 
-EchoQuality is a deep-learning model for automated and reproducible assessment of echocardiographic image quality. Developed from 7,475 expert-annotated videos, it was evaluated across five international cohorts comprising 762,588 videos from 25,205 studies.
+Developed from 7,475 expert-annotated videos, EchoQuality was evaluated across five international cohorts comprising 762,588 videos from 25,205 studies.
 
 Image quality was a major determinant of AI performance across echocardiographic measurements, dysfunction and disease detection, view identification, and left-ventricular segmentation. High-quality studies achieved the best performance in 73% of evaluations, while a quality-aware aggregation strategy improved performance in 84% of evaluations. These findings show that incorporating image-quality awareness can improve the robustness and clinical reliability of echocardiographic AI systems.
 
