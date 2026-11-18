@@ -22,19 +22,17 @@ Same patient, same study, same view, shown at three different quality levels.
 
 1. Download the file `echoqual.pt` from the HuggingFace link above.
 2. Place it in: `results/echoQual_inference/`.
-3. In `inference_echoqual.py`, update **line 192**:
-   - Set `root_path` to the directory containing your input videos.
-   - **IMPORTANT**: Input videos should have **256×256 pixel resolution** and **original frame length**, preferably in **MP4 or AVI format**.
-4. Create and activate the environment using the provided `content/torchone.yml` file.
-5. Run:
+3. Create and activate the environment using the provided `content/torchone.yml` file.
+4. Run the script with the directory containing your input videos as the `root_path` argument:
    ```bash
-   python inference_echoqual.py
+   python inference_echoqual.py /path/to/videos
    ```
-6. The script generates two output files in `results/echoQual_inference/`:
+   Input videos should have **256×256 pixel resolution** and **original frame length**, preferably in **MP4 or AVI format**.
+5. The script generates two output files in `results/echoQual_inference/`:
    - `inference_sample_predictions_*.csv`: predictions at sample level.
    - `inference_predictions_*.csv`: aggregated predictions at video level.
 
-7. In case of error while loading the backbone, download the file `backbone_structure.pt` from the HuggingFace and place it in: `results/echoQual_inference/`.
+6. In case of error while loading the backbone, download the file `backbone_structure.pt` from the HuggingFace and place it in: `results/echoQual_inference/`.
 
 ## Citation
 

@@ -72,9 +72,6 @@ def main(model_dir, root_path):
             if not file.lower().endswith(video_exts):
                 continue
             video_path = os.path.normpath(os.path.join(root, file))
-            relative_dir = os.path.relpath(root, root_path)
-            patient_id = relative_dir if relative_dir != "." else os.path.splitext(file)[0]
-
             # count number of frames using OpenCV
             cap = cv2.VideoCapture(video_path)
             if not cap.isOpened():
@@ -84,7 +81,6 @@ def main(model_dir, root_path):
             cap.release()
 
             rows.append({
-                "Patient_ID": patient_id,
                 "FilePath": video_path,
                 "FileName": file,
                 "NumberOfFrames": n_frames,
