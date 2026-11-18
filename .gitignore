@@ -54,3 +54,17 @@ paper_results_v3.ipynb
 results/echoQual_inference/HUVH
 paper_review.ipynb
 postprocess_old.ipynb
+postprocess.ipynb
+
+# Keep the inference directory layout, but no generated or example files.
+results/echoQual_inference/**
+!results/echoQual_inference/HUVH/
+!results/echoQual_inference/HUVH/.gitkeep
+!results/echoQual_inference/output/
+!results/echoQual_inference/output/.gitkeep
+
+# Keep only README assets and its environment file in content.
+content/*
+!content/echoquality_overview.png
+!content/quality_views_3x4.gif
+!content/torchone.yml

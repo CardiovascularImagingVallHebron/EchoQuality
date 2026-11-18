@@ -21,6 +21,11 @@ def load_parameters(parameters_path):
     return parameters
 
 def main(model_dir, root_path):
+    if not torch.cuda.is_available():
+        raise RuntimeError('CUDA not available. Please ensure you have a compatible GPU and the correct drivers installed.')
+    if not os.path.isdir(root_path):
+        raise FileNotFoundError(f'Videos path folder not found: {root_path}')
+
     # Identify parameters file
     parameters_path = 'results/echoQual_inference/parameters.txt'
 
@@ -91,6 +96,8 @@ def main(model_dir, root_path):
 
     # create dataframe from collected rows
     test_df = pd.DataFrame(rows)
+    if test_df.empty:
+        raise ValueError(f'Videos not found in {root_path}')
 
     test_df = test_df.reset_index(drop=True)
 
@@ -195,7 +202,10 @@ def main(model_dir, root_path):
     )
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('root_path', help='Videos path folder')
+    args = parser.parse_args()
     model_dir = 'results/echoQual_inference'
-    root_path = r"../ECHO_VIDS"
+    root_path = args.root_path
     
     main(model_dir, root_path)
