@@ -67,4 +67,5 @@ results/echoQual_inference/**
 content/*
 !content/echoquality_overview.png
 !content/quality_views_3x4.gif
+!content/tasks_v5_qual.npy
 !content/torchone.yml
