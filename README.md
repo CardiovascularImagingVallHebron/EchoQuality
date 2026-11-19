@@ -26,7 +26,7 @@ The impact of image quality as predicted by EchoQuality on the accuracy of sever
 
 Same patient, same study, same view, shown at three different quality levels.
 
-<img src="content/quality_views_3x4.gif" alt="EchoQuality examples" width="100%">
+<img src="content/quality_views_3x3.gif" alt="EchoQuality examples" width="100%">
 
 ## How to use
 

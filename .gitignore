@@ -67,6 +67,6 @@ results/echoQual_inference/**
 # Keep only README assets and its environment file in content.
 content/*
 !content/echoquality_overview.png
-!content/quality_views_3x4.gif
+!content/quality_views_3x3.gif
 !content/tasks_v5_qual.npy
 !content/torchone.yml
