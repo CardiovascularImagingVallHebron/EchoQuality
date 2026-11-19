@@ -13,6 +13,7 @@
 *.bat
 test.ipynb
 *.md
+!LICENSE.md
 *.pyc
 
 results_eval_merge.ipynb

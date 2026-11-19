@@ -14,9 +14,9 @@ EchoQuality is a deep-learning model for automated and reproducible assessment o
 
 ## About
 
-Developed from 7,475 expert-annotated videos, EchoQuality was evaluated across five international cohorts comprising 762,588 videos from 25,205 studies.
+Trained with 6,037 expert-annotated videos, EchoQuality was tested in 1,903 internal and 1,000 external videos.
 
-Image quality was a major determinant of AI performance across echocardiographic measurements, dysfunction and disease detection, view identification, and left-ventricular segmentation. High-quality studies achieved the best performance in 80% of evaluations, while a quality-aware aggregation strategy improved performance in 84% of evaluations. These findings show that incorporating image-quality awareness can improve the robustness and clinical reliability of echocardiographic AI systems.
+The impact of image quality as predicted by EchoQuality on the accuracy of several state-of-the-art AI models for echocardiography evaluation was analysed across five international cohorts comprising 762,588 videos from 25,205 studies.
 
 ---
 
