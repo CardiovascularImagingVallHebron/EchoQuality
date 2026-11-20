@@ -131,23 +131,13 @@ def main(model_dir, root_path):
     # Load model
     print("Loading model...", flush=True)
     
-    backbone_path = os.path.join('results', 'echoQual_inference', 'backbone_structure.pt')
-    
-    try:
-        print("Trying torch.hub.load for backbone...", flush=True)
-        backbone = torch.hub.load(
-            'CarDS-Yale/PanEcho',
-            'PanEcho',
-            force_reload=False,
-            backbone_only=True,
-            clip_len=clip_len
-        )
-        print("Loaded backbone from torch.hub.", flush=True)
-        
-    except Exception as e:
-        print(f"torch.hub.load failed ({e}). Trying local backbone: {backbone_path}", flush=True)
-        backbone = torch.load(backbone_path, map_location='cpu')
-        print("Loaded backbone from local file.", flush=True)
+    backbone = torch.hub.load(
+        'CarDS-Yale/PanEcho',
+        'PanEcho',
+        force_reload=False,
+        backbone_only=True,
+        clip_len=clip_len
+    )
     
     model = MultiTaskEchoQ(
         backbone=backbone,
