@@ -1,7 +1,7 @@
 # EchoQuality: Automated echocardiography image quality assessment and its association with AI performance
 
 <p align="center">
-  <img src="https://img.shields.io/badge/arXiv-Paper%20coming%20soon-B31B1B?style=for-the-badge&logo=googlescholar&logoColor=white" alt="arXiv paper coming soon">
+  <a href="https://www.medrxiv.org/content/10.64898/2026.11.19.26368489v1"><img src="https://img.shields.io/badge/medRxiv-Paper-B31B1B?style=for-the-badge&logo=googlescholar&logoColor=white" alt="medRxiv paper"></a>
   <a href="https://github.com/CardiovascularImagingVallHebron/EchoQuality"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub code"></a>
   <a href="https://huggingface.co/CardiovascularImagingVHIR/EchoQuality"><img src="https://img.shields.io/badge/Hugging%20Face-Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white" alt="Hugging Face weights"></a>
 </p>
